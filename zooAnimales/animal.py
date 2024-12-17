@@ -5,11 +5,11 @@ from zooAnimales.pez import Pez
 from zooAnimales.reptil import Reptil
 from gestion.zoologico import Zoologico
 class Animal:
-    def __init__(self,totalAnimales, nombre, edad, hablar, genero, zona):
+    def __init__(self,totalAnimales, nombre, edad, habitat, genero, zona):
         self.totalAnimales=totalAnimales
         self.nombre=nombre
         self.edad=edad
-        self.hablar=hablar
+        self.habitat=habitat
         self.genero=genero
         self.zona=zona
     def movimiento():
