@@ -1,9 +1,4 @@
-from zooAnimales.anfibio import Anfibio
-from zooAnimales.ave import Ave
-from zooAnimales.mamifero import Mamifero
-from zooAnimales.pez import Pez
-from zooAnimales.reptil import Reptil
-from gestion.zoologico import Zoologico
+
 class Animal:
     totalAnimales=0
     def __init__(self, nombre, edad, habitat, genero, zona=None):
@@ -16,17 +11,28 @@ class Animal:
     def movimiento():
         return "desplazarse"
     def totalPorTipo(self):
-        cantidad_mamiferos = len(Mamifero.listado)
-        cantidad_aves = len(Ave.listado)
-        cantidad_reptiles = len(Reptil.listado)
-        cantidad_anfibios = len(Anfibio.listado)
-        cantidad_peces = len(Pez.listado)
+        from zooAnimales.anfibio import Anfibio
+        from zooAnimales.ave import Ave
+        from zooAnimales.mamifero import Mamifero
+        from zooAnimales.pez import Pez
+        from zooAnimales.reptil import Reptil
+
+        cantidad_mamiferos = len(Mamifero._listado)
+        cantidad_aves = len(Ave._listado)
+        cantidad_reptiles = len(Reptil._listado)
+        cantidad_anfibios = len(Anfibio._listado)
+        cantidad_peces = len(Pez._listado)
+        cantidad_mamiferos = len(Mamifero._listado)
+        cantidad_aves = len(Ave._listado)
+        cantidad_reptiles = len(Reptil._listado)
+        cantidad_anfibios = len(Anfibio._listado)
+        cantidad_peces = len(Pez._listado)
         return f"Mamíferos: {cantidad_mamiferos}\nAves: {cantidad_aves}\nReptiles: {cantidad_reptiles}\nPeces: {cantidad_peces}\nAnfibios: {cantidad_anfibios}"
     def toString(self):
         if self.genero==None and self.zona==None:
-            return f"Mi nombre es {self._nombre}, tengo una edad de {self.edad}, habito en {self.habitat}, y mi género es {self.genero}."
+            return f"Mi nombre es {self._nombre}, tengo una edad de {self._edad}, habito en {self._habitat}, y mi género es {self._genero}."
         else:
-            return f"Mi nombre es {self.nombre}, tengo una edad de {self.edad}, habito en {self.habitat}, y mi género es {self.genero}.\nLa zona en la que me ubico es {self.zona._nombre}, en el {self.zona.zoo._nombre}."
+            return f"Mi nombre es {self.nombre}, tengo una edad de {self._edad}, habito en {self._habitat}, y mi género es {self._genero}.\nLa zona en la que me ubico es {self._zona._nombre}, en el {self._zona._zoo._nombre}."
     def getNombre(self):
         return self._nombre
     def setNombre(self,nombre):
