@@ -6,7 +6,7 @@ from zooAnimales.reptil import Reptil
 from gestion.zoologico import Zoologico
 class Animal:
     totalAnimales=0
-    def __init__(self,totalAnimales, nombre, edad, habitat, genero, zona):
+    def __init__(self, nombre, edad, habitat, genero, zona=None):
         self._nombre=nombre
         self._edad=edad
         self._habitat=habitat
