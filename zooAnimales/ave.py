@@ -7,6 +7,7 @@ class Ave(Animal):
         super().__init__(nombre, edad, habitat, genero)
         self._colorPlumas=colorPlumas
         Ave._listado.append(self)
+        
     def cantidadAves():
         cantidad=len(Ave._listado)
         return cantidad
