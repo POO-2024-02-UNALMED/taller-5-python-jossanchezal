@@ -27,7 +27,7 @@ class Animal():
         cantidad_reptiles = len(Reptil._listado)
         cantidad_anfibios = len(Anfibio._listado)
         cantidad_peces = len(Pez._listado)
-        return f"Mamíferos: {cantidad_mamiferos}\nAves: {cantidad_aves}\nReptiles: {cantidad_reptiles}\nPeces: {cantidad_peces}\nAnfibios: {cantidad_anfibios}"
+        return f"Mamiferos: {cantidad_mamiferos}\nAves: {cantidad_aves}\nReptiles: {cantidad_reptiles}\nPeces: {cantidad_peces}\nAnfibios: {cantidad_anfibios}"
     def toString(self):
         if self.genero==None and self.zona==None:
             return f"Mi nombre es {self._nombre}, tengo una edad de {self._edad}, habito en {self._habitat}, y mi género es {self._genero}."
