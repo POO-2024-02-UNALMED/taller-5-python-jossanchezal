@@ -12,22 +12,19 @@ class Ave(Animal):
         return cantidad
     def movimiento():
         return "volar"
-    def crearHalcon(self,nombre, edad, genero, zona):
-        self.colorPlumas="café glorioso"
-        self.habitat= "montañas"
-        self.nombre=nombre
-        self.edad=edad
-        self.genero=genero
-        self.zona=zona
-        Ave.halcones+=1
-    def crearAguila(self,nombre, edad, genero, zona):
-        self.nombre=nombre
-        self.edad=edad
-        self.genero=genero
-        self.zona=zona
-        Ave.aguilas+=1
-        self.colorPlumas="blanco y amarillo"
-        self.habitat="montañas"
+    @classmethod
+    def crearHalcon(cls, nombre, edad, genero) -> Animal:
+        cls._colorPlumas = 'cafe glorioso'
+        cls.setHabitat(cls, 'montanas')
+        Ave.halcones += 1
+        return Ave(nombre, edad, cls.getHabitat(cls), genero, cls._colorPlumas)
+
+    @classmethod
+    def crearAguila(cls, nombre, edad, genero) -> Animal:
+        cls._colorPlumas = 'blanco y amarillo'
+        cls.setHabitat(cls, 'montanas')
+        Ave.aguilas += 1
+        return Ave(nombre, edad, cls.getHabitat(cls), genero, cls._colorPlumas)
     def setNombre(self,nombre):
         self._nombre=nombre
     def getListado(self):

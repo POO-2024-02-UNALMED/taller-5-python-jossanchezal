@@ -13,22 +13,22 @@ class Reptil(Animal):
         return cantidad
     def movimiento():
         return "reptar"
-    def crearIguana(self,nombre, edad, genero, zona):
-        self.nombre=nombre
-        self.edad=edad
-        self.genero=genero
-        self.zona=zona
-        self.colorEscamas="verde"
-        self.largoCola=3
-        self.habitat="humedal"
-    def crearSerpientres(self,nombre, edad, genero, zona):
-        self.nombre=nombre
-        self.edad=edad
-        self.genero=genero
-        self.zona=zona
-        self.colorEscamas="blanco"
-        self.largoCola=1
-        self.habitat="jungla"
+    @classmethod
+    def crearIguana(cls, nombre, edad, genero) -> Animal:
+        cls._colorEscamas = 'verde'
+        cls._largoCola = 3
+        cls.setHabitat(cls, 'humedal')
+        Reptil.iguanas += 1
+        return Reptil(nombre, edad, cls.getHabitat(cls), genero, cls._colorEscamas, cls._largoCola)
+
+    @classmethod
+    def crearSerpiente(cls, nombre, edad, genero) -> Animal:
+        cls._colorEscamas = 'blanco'
+        cls._largoCola = 1
+        cls.setHabitat(cls, 'jungla')
+        Reptil.serpientes += 1
+        return Reptil(nombre, edad, cls.getHabitat(cls), genero, cls._colorEscamas, cls._largoCola)
+    
     def getListado(self):
         return Reptil._listado
     def setListado(self,listado):

@@ -13,24 +13,21 @@ class Pez(Animal):
         return cantidad
     def movimiento():
         return "nadar "
-    def crearSalmon(self,nombre, edad, genero, zona):
-        self.nombre=nombre
-        self.edad=edad
-        self.genero=genero
-        self.zona=zona
-        Pez.salmones+=1
-        self.colorEscamas="rojo"
-        self.cantidadAletas=6
-        self.habitat="océano"
-    def crarBacalao(self,nombre, edad, genero, zona):
-        self.nombre=nombre
-        self.edad=edad
-        self.genero=genero
-        self.zona=zona
-        Pez.bacalaos+=1
-        self.colorEscamas="gris"
-        self.cantidadAletas=6
-        self.habitat="océano"
+    @classmethod
+    def crearSalmon(cls, nombre, edad, genero) -> Animal:
+        cls._colorEscamas = 'rojo'
+        cls._cantidadAletas = 6
+        cls.setHabitat(cls, 'oceano')
+        Pez.salmones += 1
+        return Pez(nombre, edad, cls.getHabitat(cls), genero, cls._colorEscamas, cls._cantidadAletas)
+
+    @classmethod
+    def crearBacalao(cls, nombre, edad, genero) -> Animal:
+        cls._colorEscamas = 'gris'
+        cls._cantidadAletas = 6
+        cls.setHabitat(cls, 'oceano')
+        Pez.bacalaos += 1
+        return Pez(nombre, edad, cls.getHabitat(cls), genero, cls._colorEscamas, cls._cantidadAletas)
     def getListado(self):
         return Pez._listado
     def setListado(self,listado):
