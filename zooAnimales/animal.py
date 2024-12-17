@@ -1,5 +1,4 @@
-
-class Animal:
+class Animal():
     totalAnimales=0
     def __init__(self, nombre, edad, habitat, genero, zona=None):
         self._nombre=nombre
@@ -10,6 +9,7 @@ class Animal:
         Animal.totalAnimales+=1
     def movimiento():
         return "desplazarse"
+    @classmethod
     def totalPorTipo(self):
         from .anfibio import Anfibio
         from .ave import Ave
@@ -37,8 +37,10 @@ class Animal:
         return self._nombre
     def setNombre(self,nombre):
         self._nombre=nombre
+    @classmethod
     def getTotalAnimales(self):
         return Animal.totalAnimales
+    @classmethod
     def setTotalAnimales(self,total):
         Animal.totalAnimales=total
     def getEdad(self):
