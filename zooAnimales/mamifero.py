@@ -11,24 +11,23 @@ class Mamifero(Animal):
     def cantidadMamiferos(self):
         cantidad=len(Mamifero._listado)
         return cantidad
-    def crearCaballo(self,nombre, edad, genero, zona):
-        Mamifero.caballos+=1
-        self.pelaje=True
-        self.patas=4
-        self.habitat="pradera"
-        self.nombre=nombre
-        self.edad=edad
-        self.genero=genero
-        self.zona=zona
-    def crearLeon(self, nombre, edad, genero, zona):
-        Mamifero.leones+=1
-        self.pelaje=True
-        self.patas=4
-        self.habitat="selva"
-        self.nombre=nombre
-        self.edad=edad
-        self.genero=genero
-        self.zona=zona
+   
+    @classmethod
+    def crearCaballo(cls, nombre, edad, genero) -> Animal:
+        cls._pelaje = True
+        cls._patas = 4
+        cls.setHabitat(cls, 'pradera')
+        Mamifero.caballos += 1
+        return Mamifero(nombre, edad, cls.getHabitat(cls), genero, cls._pelaje, cls._patas)
+    
+    @classmethod
+    def crearLeon(cls, nombre, edad, genero) -> Animal:
+        cls._pelaje = True
+        cls._patas = 4
+        cls.setHabitat(cls, 'selva')
+        Mamifero.leones += 1
+        return Mamifero(nombre, edad, cls.getHabitat(cls), genero, cls._pelaje, cls._patas)
+    
     def setNombre(self,nombre):
         self._nombre=nombre
     def getListado(self):
