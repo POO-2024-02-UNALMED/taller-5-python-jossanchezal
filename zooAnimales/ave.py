@@ -1,14 +1,14 @@
 from zooAnimales.animal import Animal
 class Ave(Animal):
-    listado=[]
+    _listado=[]
     aguilas=0
     halcones=0
     def __init__(self, halcones, aguilas, colorPlumas):
         super()
-        self.colorPlumas=colorPlumas
-        Ave.listado.append(self)
+        self._colorPlumas=colorPlumas
+        Ave._listado.append(self)
     def cantidadAves():
-        cantidad=len(Ave.listado)
+        cantidad=len(Ave._listado)
         return cantidad
     def movimiento():
         return "volar"
@@ -28,3 +28,13 @@ class Ave(Animal):
         Ave.aguilas+=1
         self.colorPlumas="blanco y amarillo"
         self.habitat="montañas"
+    def setNombre(self,nombre):
+        self._nombre=nombre
+    def getListado(self):
+        return Ave._listado
+    def setListado(self,listado):
+        Ave._listado=listado
+    def getColorPlumas(self):
+        return self._colorPlumas
+    def setColorPlumas(self,color):
+        self._colorPlumaso=color

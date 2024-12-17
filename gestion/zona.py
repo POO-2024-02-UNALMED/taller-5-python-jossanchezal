@@ -8,5 +8,22 @@ class Zona:
     def cantidadAnimales(self):
         cantidad=len(self._animales)
         return cantidad
+    def getNombre(self):
+        return self._nombre
+    def setNombre(self,nombre):
+        self._nombre=nombre
+    def getZoo(self):
+        return self._zoo
+    def setZoo(self,zoo):
+        self._zoo=zoo
+    def getAnimales(self):
+        return self._animales
+    def setAnimales(self,animales):
+        self._animales=animales
+    
+    
+    
+    
+
 
         

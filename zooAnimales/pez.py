@@ -1,15 +1,15 @@
 from zooAnimales.animal import Animal
 class Pez(Animal):
-    listado=[]
+    _listado=[]
     salmones=0
     bacalaos=0
     def __init__(self, colorEscamas, cantidadAletas):
         super()
-        self.colorEscamas=colorEscamas
-        self.cantidadAletas=cantidadAletas
-        Pez.listado.append(self)
+        self._colorEscamas=colorEscamas
+        self._cantidadAletas=cantidadAletas
+        Pez._listado.append(self)
     def cantidadPeces():
-        cantidad=len(Pez.listado)
+        cantidad=len(Pez._listado)
         return cantidad
     def movimiento():
         return "nadar "
@@ -31,3 +31,15 @@ class Pez(Animal):
         self.colorEscamas="gris"
         self.cantidadAletas=6
         self.habitat="océano"
+    def getListado(self):
+        return Pez._listado
+    def setListado(self,listado):
+        Pez._listadoo=listado
+    def getColorEscamas(self):
+        return self._colorEscamas
+    def setColorEscamas(self,color):
+        self._colorEscamas=color
+    def getCantidadAletas(self):
+        return self._cantidadAletas
+    def setCantidadAletas(self,cantidad):
+        self._cantidadAletas=cantidad
